@@ -1,0 +1,18 @@
+name: Build Windows App Final
+on: [push, workflow_dispatch]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter config --enable-windows-desktop
+      - run: flutter build windows
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Sisyphus-Exe
+          path: build/windows/runner/Release
