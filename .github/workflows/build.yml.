@@ -13,5 +13,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Sisyphus-Exe
-          path: build/windows/runner/Release
+          path: build/windows/runner/Release 
 
